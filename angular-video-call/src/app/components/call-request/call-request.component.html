@@ -1,0 +1,15 @@
+<div class="container-fluid call-request-container">
+    <div class="row d-flex justify-content-end p-4">
+        <mat-icon class="close-icon" (click)="decline()">close</mat-icon>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <span class="title"><strong>{{data.email}}</strong> is calling</span>
+    </div>
+    <div class="row spin my-3">
+        <ngx-spinner name="sp1" [fullScreen]="false" type="ball-fussion" size="medium"></ngx-spinner>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <button mat-raised-button class="mr-3" color="primary" (click)="accept()">Accept</button>
+        <button mat-flat-button class="" color="accent" (click)="decline()">Decline</button>
+    </div>
+</div>

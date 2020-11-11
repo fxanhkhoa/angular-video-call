@@ -1,2 +1,6 @@
 # angular-video-call
- room video call project
+
+- using peerjs
+- socket io
+- angular 10 
+- nodejs

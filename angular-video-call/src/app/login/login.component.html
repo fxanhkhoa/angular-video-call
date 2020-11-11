@@ -1,0 +1,27 @@
+<div class="container-fluid login-container">
+    <div class="row d-flex justify-content-center">
+        <h1 class="mt-5"><span class="glow">LOGIN</span></h1>
+    </div>
+    <div class="row d-flex flex-column align-items-center" [formGroup]="form">
+        <mat-form-field appearance="legacy" class="w-50">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Input Email" formControlName="email" class="custom-input">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="form.controls['email'].hasError('required')">This field is required</mat-error>
+            <mat-error *ngIf="!form.controls['email'].hasError('required') && form.controls['email'].hasError('email')">Invalid Email</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="legacy" class="w-50">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" class="custom-input">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="form.controls['password'].hasError('required')">This field is required</mat-error>
+        </mat-form-field>
+        <ngx-spinner name="sp1" [fullScreen]="false" type="ball-clip-rotate-multiple" size="medium"></ngx-spinner>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <button mat-raised-button class="login-btn mr-2" (click)="login()">Login</button>
+        <span class="clickable signup my-auto" [routerLink]="['signup']">Signup</span>
+    </div>
+</div>
