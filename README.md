@@ -10,4 +10,4 @@
 2. Enter url in the textarea
 3. Choose Enabled in the select option Click image link bellow to see detail
 
-![alt text](https://github.com/fxanhkhoa/angular-video-call/blob/master/enable-camera.png?raw=true)
+![alt text](https://github.com/fxanhkhoa/angular-video-call/blob/main/enable-camera.png?raw=true)
