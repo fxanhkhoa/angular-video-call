@@ -1,24 +1,24 @@
 <div class="container-fluid home-container">
-    <div class="row d-flex justify-content-end p-5">
+    <div class="row d-flex justify-content-around p-5">
+        <div class="row d-flex justify-content-center">
+            <h1 style="font-weight: bold;">HOME</h1>
+        </div>
         <button mat-raised-button color="warn" (click)="logOut()">
             <mat-icon>exit_to_app</mat-icon>
             <span>Log Out</span>
         </button>
     </div>
-    <div class="row d-flex justify-content-center">
-        <h1>HOME</h1>
-    </div>
     <div class="row">
-        <div class="col-md-8">
+        <!-- <div class="col-md-8">
             <div class="row p-5">
                 <div class="col-md-4">
-                    <!-- <mat-form-field class="mr-3">
+                    <mat-form-field class="mr-3">
                         <mat-label>Peer Id</mat-label>
                         <input matInput placeholder="Input Peer Id" [formControl]="anotherid">
                         <mat-icon matSuffix>input</mat-icon>
                         <mat-error *ngIf="anotherid?.hasError('required')">Required</mat-error>
                     </mat-form-field>
-                    <button mat-raised-button color="accent" (click)="connect()">Connect</button> -->
+                    <button mat-raised-button color="accent" (click)="connect()">Connect</button>
                     <span>My RoomId: <strong>{{roomid | async}}</strong></span>
                 </div>
                 <div class="col-md-4">
@@ -28,16 +28,16 @@
                     <span>My SocketId: <strong>{{mysocketid | async}}</strong></span>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4 p-3">
+        </div> -->
+        <div class="col-md-12 p-3">
             <div class="row px-3">
                 <span>ONLINE USERS</span>
                 <mat-accordion class="list-user-container">
                     <mat-expansion-panel *ngFor="let user of (listOnlineUser | async)">
                         <mat-expansion-panel-header>
                             <mat-panel-title class="my-auto">
-                                {{user.email | slice:0:10}}
-                                <span *ngIf="user.email.length > 10">...</span>
+                                {{user.email | slice:0:30}}
+                                <span *ngIf="user.email.length > 30">...</span>
                             </mat-panel-title>
                             <mat-panel-description>
                                 <button mat-mini-fab color="primary" (click)="requestCall(user)">
@@ -135,7 +135,7 @@
                 </mat-card-header>
                 <mat-card-content>
                     <div class="chat-content-container">
-                        <div class="container-fluid my-2" *ngFor="let mess of globalChatMessage">
+                        <div class="container-fluid my-2" *ngFor="let mess of roomChatMessage">
                             <div class="row d-flex" [ngClass]="{'justify-content-end': mess.floatRight}">
                                 <div class="sub-text mx-2">
                                     <span>{{mess.sender.email}}</span>
